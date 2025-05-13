@@ -966,8 +966,10 @@ cursor: pointer;
  }
  .about .card{
   width: 260px;
-  height: 630px;
+  height: 400px;
   margin: 10px;
+  
+  text-align: center;
  }
  .textoGabo{
   width: 1000px;
@@ -1282,8 +1284,8 @@ section:nth-child(odd) .animate.scroll,
   height: 13%;
 }
  .imgCard{
-  height: 400px;
-  width: 400px;
+  height: 200px;
+  width: 250px;
   border-radius: 50px;
  }
  .boxCard{
