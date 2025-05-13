@@ -259,63 +259,14 @@
       <br>
       <h2 class="heading">Book <span> list </span> verse <span class="  animate scroll" style="--i:1"></span></h2>
       <div class="cards">
-        <div class="card boxCard">
-          <div href="" class="">
-  
-            <img src="images/800_Taller_Escuela_de_Conservacion_Choc.jpg" class="imgCard" alt="escuela de conservacion">
-  
-          </div>
-          <div class="texto">
-            <h1>Escuela de Conservacion </h1>
-            <p>
-              La Biblioteca Pública Piloto será el Nodo Antioquia de la Escuela de Conservación de la Biblioteca Nacional de Colombia, un espacio de formación y capacitación para la conservación preventiva y el manejo de colecciones patrimoniales.
-            </p>
-          </div>
-        </div>
+        
         
 
-          <div class="card boxCard">
-            <div href="" class="">
-    
-              <img src="images/03_Mujeres Dibujantes 800x664.jpg" class="imgCard" alt="mujeres dibujantes">
-    
-            </div>
-            <div class="texto">
-              <h1>La Biblioteca Nacional de Colombia presenta la Colección Mujeres Dibujantes
-              </h1>
-              <p>
-                
-              </p>
-            </div>
-          </div>
+          
 
-            <div class="card boxCard">
-              <div href="" class="">
-      
-                <img src="images/BEC - WEB 800.jpg" class="imgCard" alt="expocicones">
-      
-              </div>
-              <div class="texto">
-                <h1>Regresa la Biblioteca de Escritoras Colombianas</h1>
-                <p>
-                  
-                </p>
-              </div>
-          </div>
+          
 
-              <div class="card boxCard">
-                <div  class="">
-        
-                  <img src="images/BV-800X800.jpg  " class="imgCard" alt="escritoras colombianas">
-                <h1>la voragine</h1>
-                  <p>
-                    
-                  </p>
-                  <button>agregar al carrito</button>
-                </div>
-                <div class="texto">
-                  
-                </div>
+             
                 
       </div>
       </div>
@@ -445,10 +396,10 @@
 
     <script>
 
-      // WARNING: fetch is not supported in IE, so it may need a polyfill
+      
 
       function execute() {
-        const url = "https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=1gQDFvG7PPREZhXwA1WeHWxRyxrX9VRK";
+        const url = "https://fakestoreapi.com/products";
         const options = {
           method: "GET",
           headers: {
@@ -470,11 +421,29 @@
           })
           .then(data => {
             console.log(data);
+            const products = JSON.parse(data);
+            // const container = document.querySelector('.cards');
+            console.log(products);
+            products.forEach(product => {
+              const card = document.createElement('div');
+              card.classList.add('card', 'boxCard');
+              card.innerHTML = `
+                <div class="">
+                  <img src="${product.image}" class="imgCard" alt="${product.title}">
+                  <h1>${product.title}</h1>
+                  <p>${product.description}</p>
+                  <button>agregar al carrito</button>
+                </div>
+              `;
+              document.querySelector('.cards').appendChild(card);
+            });
+            
           })
           .catch(err => {
             console.error(err);
           });
       }
+      execute();
 
     </script>
 
